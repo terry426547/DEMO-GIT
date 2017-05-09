@@ -1,0 +1,30 @@
+ server {
+        listen       80;
+        server_name  redmine.midnet.cc;
+        root /var/www/redmine/public;
+        passenger_enabled on;
+        client_max_body_size      10m; # Max attachemnt size
+        rewrite ^(.*) https://$host$1 permanent;
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+
+ server {
+        listen       443 ssl;
+        server_name  redmine.midnet.cc;
+        root /var/www/redmine/public;
+        passenger_enabled on;
+        #client_max_body_size      10m; # Max attachemnt size
+        ssl_certificate /opt/nginx/ssl/server.crt;
+        ssl_certificate_key /opt/nginx/ssl/server.key;
+        # redirect server error pages to the static page /50x.html
+        #
+        #error_page   500 502 503 504  /50x.html;
+        #location = /50x.html {
+        #    root   html;
+        #}
+    }
