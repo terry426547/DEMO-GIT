@@ -1,6 +1,6 @@
  server {
         listen       80;
-        server_name  redmine.midnet.cc;
+        #server_name  redmine.midnet.cc;
         root /var/www/redmine/public;
         passenger_enabled on;
         client_max_body_size      10m; # Max attachemnt size
@@ -15,7 +15,7 @@
 
  server {
         listen       443 ssl;
-        server_name  redmine.midnet.cc;
+        #server_name  redmine.midnet.cc;
         root /var/www/redmine/public;
         passenger_enabled on;
         #client_max_body_size      10m; # Max attachemnt size
